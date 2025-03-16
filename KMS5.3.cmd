@@ -1,4 +1,4 @@
-@set uivr=v53 https://github.com/BsNgChiThanh
+@set uivr=v53 https://github.com/BsChiThanh
 @echo off
 :: ### Configuration Options ###
 
