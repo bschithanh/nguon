@@ -1,6 +1,6 @@
 chcp 65001 >nul
 @echo off
-title ACTIVATE OFFICE 2010-2013-2016-2019 By Phone - Copyright (C) Dominic Savio. All rights reserved.
+title ACTIVATE OFFICE 2010-2013-2016-2019-2021-2024 By Phone - Copyright (C) Dominic Savio. All rights reserved.
 mode con: cols=122 lines=38
 chcp 65001 >nul
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
