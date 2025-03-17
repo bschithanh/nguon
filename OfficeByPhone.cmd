@@ -1,4 +1,4 @@
-﻿chcp 65001 >nul
+chcp 65001 >nul
 @echo off
 title ACTIVATE OFFICE 2010-2013-2016-2019 By Phone - Copyright (C) Dominic Savio. All rights reserved.
 mode con: cols=122 lines=38
@@ -23,10 +23,10 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 cls
 
-
-@echo.                       Kich Hoat Office 2010-2013-2016-2019-2021-2024 Bang Key By Phone
 @echo.
-@echo.
+@echo.                                        https://github.com/bschithanh
+@echo.                                Kich Hoat Office 2010-2013-2016-2019-2021-2024 
+@echo.                                              Bang Key By Phone
 @echo.                              =====================================================
 @echo.                              [  1. Office 2010                 : Nhan phim so 1  ]
 @echo.                              [  2. Office 2013                 : Nhan phim so 2  ]
@@ -36,8 +36,6 @@ cls
 @echo.                              [  6. Office 2024                 : Nhan phim so 6  ]
 @echo.                              [  7. Thoat                       : Nhan phim so 7  ]
 @echo.                              =====================================================
-@echo.
-@echo.
 @echo.
 
 color f4
