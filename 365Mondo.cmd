@@ -25,4 +25,3 @@ cscript //nologo ospp.vbs /inpkey:HFTND-W9MK4-8B7MJ-B6C4G-XQBR2
 :notsupported
 :halt
 pause >nul
-exit
