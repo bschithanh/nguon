@@ -401,7 +401,7 @@ echo:
 echo:
 echo:
 echo:
-echo:                https://github.com/BsNgChiThanh/Crack-IDM  
+echo:                https://github.com/BsChiThanh/Crack-IDM  
 echo:            ___________________________________________________ 
 echo:                                                               
 echo:               [1] Freeze Trial
