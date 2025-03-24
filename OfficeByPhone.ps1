@@ -1,10 +1,10 @@
 # Enable TLSv1.2 for compatibility with older clients
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor [System.Net.SecurityProtocolType]::Tls12
 
-$DownloadURL = 'https://raw.githubusercontent.com/bschithanh/nguon/main/OfficeByPhone.cmd'
+$DownloadURL = 'https://raw.githubusercontent.com/bschithanh/nguon/main/ProJect2024.cmd'
 
 $rand = Get-Random -Maximum 1000
-$FilePath = "$env:TEMP\OfficeByPhone_$rand.cmd"
+$FilePath = "$env:TEMP\ProJect2024_$rand.cmd"
 
 try {
     Invoke-WebRequest -Uri $DownloadURL -UseBasicParsing -OutFile $FilePath
