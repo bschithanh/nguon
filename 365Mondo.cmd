@@ -1,5 +1,5 @@
 @echo off
-title  Activate Microsoft Office Prolus 2016 for FREE - https://github.com/BsChiThanh 
+title  Activate Microsoft Mondo 2016 for FREE - https://github.com/BsChiThanh 
 cls
 color F4
 mode con cols=98 lines=30
