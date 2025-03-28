@@ -3,10 +3,8 @@ title  Activate Microsoft Office Projet 2024 for FREE - https://github.com/BsChi
 cls
 color F4
 mode con cols=98 lines=30
- 
 if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16"
 if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16"
-
 cscript ospp.vbs /inslic:"..\root\Licenses16\pkeyconfig-office.xrm-ms"
 cscript ospp.vbs /inslic:"..\root\Licenses16\ProjectProVL_KMS_Client-ppd.xrm-ms"
 cscript ospp.vbs /inslic:"..\root\Licenses16\ProjectProVL_KMS_Client-ul.xrm-ms"
@@ -14,13 +12,10 @@ cscript ospp.vbs /inslic:"..\root\Licenses16\ProjectProVL_KMS_Client-ul-oob.xrm-
 cscript ospp.vbs /inslic:"..\root\Licenses16\ProjectPro2024VL_KMS_Client_AE-ul.xrm-ms"
 cscript ospp.vbs /inslic:"..\root\Licenses16\ProjectPro2024VL_KMS_Client_AE-ul-oob.xrm-ms"
 cscript ospp.vbs /inslic:"..\root\Licenses16\ProjectPro2024VL_KMS_Client_AE-ppd.xrm-ms"
-
 cscript //nologo ospp.vbs /setprt:1688
 cscript //nologo ospp.vbs /sethst:192.168.2.81.2.7.0
 cscript //nologo ospp.vbs /sethst:122.226.152.230
 cscript //nologo ospp.vbs /inpkey:FQQ23-N4YCY-73HQ3-FM9WC-76HF4
-cscript //nologo ospp.vbs /inpkey:CBNBW-Y38B2-926G3-FDJTQ-YBM7F
-
 :end
 :notsupported
 :halt
