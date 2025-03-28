@@ -13,6 +13,7 @@ cscript //nologo ospp.vbs /setprt:1688
 cscript //nologo ospp.vbs /sethst:192.168.2.81.2.7.0
 cscript //nologo ospp.vbs /sethst:122.226.152.230
 cscript //nologo ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
+cscript //nologo ospp.vbs /inpkey:J6823-XN38F-WXD9W-DJT8M-HVB9Q
 :end
 :notsupported
 :halt
