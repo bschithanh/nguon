@@ -12,7 +12,6 @@ cscript ospp.vbs /inslic:"..\root\Licenses16\MondoVL_MAK-pl.xrm-ms"
 cscript ospp.vbs /inslic:"..\root\Licenses16\MondoVL_KMS_Client-ul.xrm-ms"
 cscript ospp.vbs /inslic:"..\root\Licenses16\MondoVL_KMS_Client-ul-oob.xrm-ms"
 cscript ospp.vbs /inslic:"..\root\Licenses16\MondoVL_KMS_Client-ppd.xrm-ms"
- 
 cscript //nologo ospp.vbs /setprt:1688
 cscript //nologo ospp.vbs /sethst:192.168.2.81.2.7.0
 cscript //nologo ospp.vbs /sethst:122.226.152.230
