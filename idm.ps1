@@ -1,20 +1,84 @@
-# Enable TLSv1.2 for compatibility with older clients
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor [System.Net.SecurityProtocolType]::Tls12
+# Check the instructions here on how to use it https://coporton.com/idm-activation-script
 
-$DownloadURL = 'https://raw.githubusercontent.com/Coporton/IDM-Activation-Script/main/IASL.cmd'
+# Define multiple URLs (in order)
+$urls = @(
+    "https://github.com/Coporton/IDM-Activation-Script/releases/download/v2.5.0/IDM-Activation-Script-main.zip",
+    "https://codeload.github.com/Coporton/IDM-Activation-Script/zip/refs/heads/main",
+    "https://coporton.com/IDM-Activation-Script-main.zip"
+)
 
-$rand = Get-Random -Maximum 1000
-$FilePath = "$env:TEMP\IASL_$rand.cmd"
+# Define variables
+$tempDir = "$env:TEMP\RE0GA1NA-3MD1-AO3L-N3WO-5DT4EN5RE5TN5I"
+$output = "$tempDir\IDM-Activation-Script-main.zip"
+$extractDir = "$tempDir"
+$versionFile = "$extractDir\IDM-Activation-Script-main\src\idm_latest_version.txt"
 
+# Ensure the temp directory exists
+if (!(Test-Path -Path $tempDir)) {
+    New-Item -ItemType Directory -Path $tempDir | Out-Null
+}
+
+# Try downloading from available URLs
+$success = $false
+foreach ($url in $urls) {
+    Write-Host ""
+    Write-Host "Downloading Coporton IDM Activation Script from:" -ForegroundColor Cyan
+    Write-Host "$url" -ForegroundColor Yellow
+
+    try {
+        $webclient = New-Object System.Net.WebClient
+
+        # Show simple progress (no async issues)
+        $webclient.DownloadFile($url, $output)
+
+        Write-Host "Download successful!" -ForegroundColor Green
+        $success = $true
+        break
+    } catch {
+        Write-Host "Failed to download from this URL. Trying next..." -ForegroundColor Red
+    }
+}
+
+if (-not $success) {
+    Write-Host ""
+    Write-Host "ERROR: Download failed from all available sources." -ForegroundColor Red
+    exit 1
+}
+
+# Extract ZIP
+Write-Host "Extracting files..."
+Expand-Archive -Path $output -DestinationPath $extractDir -Force
+
+# Fetch Latest IDM Version
+$versionURL = "https://www.internetdownloadmanager.com/news.html"
 try {
-    Invoke-WebRequest -Uri $DownloadURL -UseBasicParsing -OutFile $FilePath
+    $response = Invoke-WebRequest -Uri $versionURL -UseBasicParsing -ErrorAction Stop
+    if ($response.Content -match "What's new in version ([\d\.]+ Build \d+)") {
+        $latestVersion = $matches[1]
+        "Latest IDM Version: $latestVersion" | Set-Content -Path $versionFile -Encoding UTF8
+    } else {
+        Write-Host "Could not extract version from response."
+        "Latest IDM Version: Unknown" | Set-Content -Path $versionFile -Encoding UTF8
+    }
 } catch {
-    Write-Error $_
-	Return
+    Write-Host "Version check failed: $_"
+    "ERROR: PowerShell request failed: $($_.Exception.Message)" | Set-Content -Path $versionFile -Encoding UTF8
 }
 
-if (Test-Path $FilePath) {
-    Start-Process $FilePath -Wait
-    $item = Get-Item -LiteralPath $FilePath
-    $item.Delete()
+# Run the batch script
+$batchFile = "$extractDir\IDM-Activation-Script-main\IASL.cmd"
+if (Test-Path -Path $batchFile) {
+    Write-Host "Running the activation script..."
+    Start-Process -FilePath "cmd.exe" -ArgumentList "/c `"$batchFile`"" -Wait
+} else {
+    Write-Host "Batch script not found in expected folder."
+    exit 1
 }
+
+# Cleanup
+Write-Host "Cleaning up extracted files..."
+Remove-Item -Path "$tempDir" -Recurse -Force -ErrorAction SilentlyContinue
+
+Write-Host "All set." -ForegroundColor Green
+Write-Host "Coporton IDM Activation Script closed successfully." -ForegroundColor Green
+
