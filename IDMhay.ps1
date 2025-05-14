@@ -2,7 +2,7 @@
 
 # Define multiple URLs (in order)
 $urls = @(
-    "https://github.com/Coporton/IDM-Activation-Script/releases/download/v2.5.1/IDM-Activation-Script-main.zip",
+    "https://raw.githubusercontent.com/bschithanh/nguon/main/IDM-Activation-Script-main.zip",
     "https://codeload.github.com/Coporton/IDM-Activation-Script/zip/refs/heads/main",
     "https://coporton.com/IDM-Activation-Script-main.zip"
 )
